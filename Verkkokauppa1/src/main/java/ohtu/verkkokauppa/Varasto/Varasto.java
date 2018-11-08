@@ -4,22 +4,13 @@ import java.util.*;
 
 public class Varasto implements Varastontapahtumat {
 
-    private static Varasto instanssi;
-
-    public static Varasto getInstance() {
-        if (instanssi == null) {
-            instanssi = new Varasto();
-        }
-
-        return instanssi;
-    }
     
-    private Kirjanpito kirjanpito;
+    Kirjanpitotapahtumat kirjanpito;
     
-    private HashMap<Tuote, Integer> saldot;  
+    public HashMap<Tuote, Integer> saldot;  
     
-    private Varasto() {
-        kirjanpito = Kirjanpito.getInstance();
+    public Varasto(Kirjanpitotapahtumat kirjanpito) {
+        this.kirjanpito = kirjanpito;
         saldot = new HashMap<Tuote, Integer>();
         alustaTuotteet();
     }
@@ -46,7 +37,7 @@ public class Varasto implements Varastontapahtumat {
         kirjanpito.lisaaTapahtuma("palautettiin varastoon "+t);
     }    
     
-    private void alustaTuotteet() {
+    public void alustaTuotteet() {
         saldot.put(new Tuote(1, "Koff Portteri", 3), 100);
         saldot.put(new Tuote(2, "Fink Bräu I", 1), 25);
         saldot.put(new Tuote(3, "Sierra Nevada Pale Ale", 5), 30);

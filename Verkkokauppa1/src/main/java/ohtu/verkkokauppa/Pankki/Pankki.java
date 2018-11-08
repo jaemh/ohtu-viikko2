@@ -1,20 +1,13 @@
 package ohtu.verkkokauppa;
 
+import ohtu.verkkokauppa.Kirjanpito;
+
 public class Pankki implements Valuutantilisiirto {
 
-    private static Pankki instanssi;
+    public Kirjanpitotapahtumat kirjanpito;
 
-    public static Pankki getInstance() {
-        if (instanssi == null) {
-            instanssi = new Pankki();
-        }
-
-        return instanssi;
-    }
-    private Kirjanpito kirjanpito;
-
-    public Pankki() {
-        kirjanpito = Kirjanpito.getInstance();
+    public Pankki(Kirjanpitotapahtumat kirjanpito) {
+        this.kirjanpito = kirjanpito;
     }
 
     public boolean tilisiirto(String nimi, int viitenumero, String tililta, String tilille, int summa) {
