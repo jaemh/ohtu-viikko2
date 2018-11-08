@@ -1,6 +1,6 @@
 package ohtu.verkkokauppa;
 
-public class Viitegeneraattori {
+public class Viitegeneraattori implements Viitegeneraattorintapahtumat {
 
     private static Viitegeneraattori instanssi;
 

@@ -2,7 +2,7 @@ package ohtu.verkkokauppa;
 
 import java.util.*;
 
-public class Varasto {
+public class Varasto implements Varastontapahtumat {
 
     private static Varasto instanssi;
 
@@ -15,6 +15,7 @@ public class Varasto {
     }
     
     private Kirjanpito kirjanpito;
+    
     private HashMap<Tuote, Integer> saldot;  
     
     private Varasto() {
