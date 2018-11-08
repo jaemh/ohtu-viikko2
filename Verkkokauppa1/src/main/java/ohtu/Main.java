@@ -6,15 +6,21 @@ import ohtu.verkkokauppa.Varasto;
 import ohtu.verkkokauppa.Pankki;
 import ohtu.verkkokauppa.Viitegeneraattori;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+
+
 
 public class Main {
 
     public static void main(String[] args) {
-        Kirjanpito kirjanpito = new Kirjanpito();
-        Varasto varasto = new Varasto(kirjanpito);   
-        Pankki pankki = new Pankki(kirjanpito);
-        Viitegeneraattori viitegeneraattori = new Viitegeneraattori();
-        Kauppa kauppa = new Kauppa(varasto, pankki, viitegeneraattori);
+        ApplicationContext ctx = new FileSystemXmlApplicationContext("src/main/resources/spring-context.xml");
+     
+        Kauppa kauppa = ctx.getBean(Kauppa.class);
+        Kirjanpito kirjanpito = ctx.getBeans(Kirjanpito.class);
+        Varasto varasto = ctx.getBeans(Kirjanpito.class);
+        Pankki pankki = ctx.getBeans(Kirjanpito.class);
+        Viitegeneraattori viitegeneraattori = ctx.getBeans();
 
         // kauppa hoitaa yhden asiakkaan kerrallaan seuraavaan tapaan:
         kauppa.aloitaAsiointi();
