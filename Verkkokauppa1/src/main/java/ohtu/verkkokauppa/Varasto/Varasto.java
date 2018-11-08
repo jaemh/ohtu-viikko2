@@ -1,7 +1,10 @@
 package ohtu.verkkokauppa;
 
+import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.*;
 
+@Component
 public class Varasto implements Varastontapahtumat {
 
     
@@ -9,6 +12,7 @@ public class Varasto implements Varastontapahtumat {
     
     public HashMap<Tuote, Integer> saldot;  
     
+    @Autowired
     public Varasto(Kirjanpitotapahtumat kirjanpito) {
         this.kirjanpito = kirjanpito;
         saldot = new HashMap<Tuote, Integer>();

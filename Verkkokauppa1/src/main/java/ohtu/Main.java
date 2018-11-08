@@ -16,11 +16,11 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext ctx = new FileSystemXmlApplicationContext("src/main/resources/spring-context.xml");
      
-        Kauppa kauppa = ctx.getBean(Kauppa.class);
-        Kirjanpito kirjanpito = ctx.getBeans(Kirjanpito.class);
-        Varasto varasto = ctx.getBeans(Kirjanpito.class);
-        Pankki pankki = ctx.getBeans(Kirjanpito.class);
-        Viitegeneraattori viitegeneraattori = ctx.getBeans();
+        Kauppa kauppa = (Kauppa) ctx.getBean("kauppa");
+        Kirjanpito kirjanpito = ctx.getBean(Kirjanpito.class);
+        Varasto varasto = (Varasto) ctx.getBean("varasto");
+        Pankki pankki = (Pankki) ctx.getBean("pankki");
+        Viitegeneraattori viitegeneraattori = (Viitegeneraattori) ctx.getBean("viitegeneraattori");
 
         // kauppa hoitaa yhden asiakkaan kerrallaan seuraavaan tapaan:
         kauppa.aloitaAsiointi();
