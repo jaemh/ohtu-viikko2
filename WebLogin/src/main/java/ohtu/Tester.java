@@ -23,7 +23,7 @@ public class Tester {
         sleep(2);
 
         element = driver.findElement(By.name("username"));
-        element.sendKeys("pekka1");
+        element.sendKeys("pekka6");
         element = driver.findElement(By.name("password"));
         element.sendKeys("akkep");
         element = driver.findElement(By.name("passwordConfirmation"));
@@ -31,6 +31,14 @@ public class Tester {
 
         sleep(2);
         element.submit();
+
+        sleep(2);
+        WebElement element2 = driver.findElement(By.linkText("continue to application mainpage"));
+        element2.click();
+
+        sleep(2);
+        WebElement element3 = driver.findElement(By.linkText("logout"));
+        element3.click();
 
         sleep(3);
 
