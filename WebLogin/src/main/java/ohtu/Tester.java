@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Tester {
 
     public static void main(String[] args) {
+
         System.setProperty("webdriver.chrome.driver", "/Users/jaana/Desktop/chromedriver");
         WebDriver driver = new ChromeDriver();
 
@@ -15,16 +16,18 @@ public class Tester {
 
         sleep(2);
 
-        WebElement element = driver.findElement(By.linkText("login"));
+
+        WebElement element = driver.findElement(By.linkText("register new user"));
         element.click();
 
         sleep(2);
 
         element = driver.findElement(By.name("username"));
-        element.sendKeys("pekka");
+        element.sendKeys("pekka1");
         element = driver.findElement(By.name("password"));
-        element.sendKeys("akke");
-        element = driver.findElement(By.name("login"));
+        element.sendKeys("akkep");
+        element = driver.findElement(By.name("passwordConfirmation"));
+        element.sendKeys("akkep");
 
         sleep(2);
         element.submit();

@@ -11,9 +11,9 @@ public class InMemoryUserDao implements UserDao {
     public InMemoryUserDao() {
         users = new ArrayList<User>();
         User u = new User();
-        
+
         users.add(new User("pekka", "akkep"));
-    }        
+    }
 
     @Override
     public List<User> listAll() {
