@@ -9,7 +9,7 @@ public class ServerRule extends ExternalResource {
 
     private final int port;
 
-    @Before
+    
     public ServerRule(int port) {
         this.port = port;
     }
