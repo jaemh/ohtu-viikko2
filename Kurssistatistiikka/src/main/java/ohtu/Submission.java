@@ -9,7 +9,9 @@ public class Submission {
     private String course;
     private int[] exercises;
     private int sum;
-
+    private String fullName;
+    private int __v;
+    private Course courseObj;
 
     public void setCourse(String course){
       this.course = course;
@@ -18,6 +20,15 @@ public class Submission {
     public String getCourse(){
       return course;
     }
+
+    public void setCourseObj(Course courseObj){
+      this.courseObj = courseObj;
+    }
+
+    public Course getCourseObj(){
+      return courseObj;
+    }
+
 
     public void setWeek(int week) {
         this.week = week;
@@ -48,10 +59,19 @@ public class Submission {
      return sum;
    }
 
+   public void setFullName(String fullName){
+     this.fullName = fullName;
+   }
+
+   public String getFullName(){
+     return fullName;
+   }
+
+
 
     @Override
     public String toString() {
-        return course + ", viikko " + week + ", tehtyjä tehtäviä yhteensä: "  + sum + " aikaa kului " + hours + "h, tehdyt tehtävät: " + Arrays.toString(exercises);
+        return "opiskelijanumero: " + this.courseObj.getFullName() + ", viikko " + week + ", tehtyjä tehtäviä yhteensä: "  + this.exercises.length+ "/"+this.courseObj.getExercises()[week] + " aikaa kului " + hours + "h, tehdyt tehtävät: " + Arrays.toString(exercises);
     }
 
 }
