@@ -1,7 +1,14 @@
+plugins {
+  id 'com.github.johnrengelman.shadow' version '4.0.2'
+  id 'java'
+}
+
 apply plugin: 'java'
 apply plugin: 'application'
 
+
 mainClassName = 'ohtu.Main'
+
 
 jar {
     manifest {
