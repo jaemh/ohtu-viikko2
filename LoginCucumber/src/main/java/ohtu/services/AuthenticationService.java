@@ -40,12 +40,8 @@ public class AuthenticationService {
 
     private boolean invalid(String username, String password) {
       if (invalid(username, password)) {
-          return false;
+          return ("username is already taken");
       }
-
-      userDao.add(new User(username, password));
-
-      return true;
     }
 
 }
